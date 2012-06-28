@@ -2,6 +2,7 @@ require 'simplecov'
 require 'rspec'
 SimpleCov.start
 require_relative 'user'
+require_relative 'flashcard'
 
 include FlashcardPlayer
 
@@ -16,7 +17,11 @@ describe "User.new" do
   end
   
   it "properly parses the flashcards from a file" do
-    @user.flashcard_list.length.should eq 81
+    @user.flashcard_list.length.should eq 38
+  end
+  
+  it "creates a list of Flashcard objects" do
+    @user.flashcard_list.each { |flashcard| flashcard.should be_an_instance_of Flashcard}
   end
   
 end
