@@ -12,7 +12,9 @@ module FlashcardPlayer
     def correct_definition?(guessed_definition)
       if @definition == guessed_definition 
         @memorized = true 
+        return true
       end
+      false
     end
     
     def memorized?
